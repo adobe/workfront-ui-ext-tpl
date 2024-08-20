@@ -1,0 +1,18 @@
+        headerMenu: {
+          getItems() {
+            return [
+              // @todo YOUR HEADER BUTTONS DECLARATION SHOULD BE HERE
+              <%_ extensionManifest.mainMenuItems.forEach((button) => { -%>
+              {
+                id: '<%- button.id %>',
+                url: '<%- button.id %>',
+                label: '<%- button.label %>',
+                icon: 'OpenIn',
+                onClick() {
+                  console.log("Button '<%- button.id %>' has been pressed.");
+                },
+              },
+              <%_ }) -%>
+            ];
+          },
+        },

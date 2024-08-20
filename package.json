@@ -1,0 +1,56 @@
+{
+  "name": "@adobe/workfront-ui-ext-tpl",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "description": "Template for AIO CLI App Builder plugin that allows generating code of UI Extension for Workfront product",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "ecosystem:aio-app-builder-templates"
+  ],
+  "author": "Adobe Inc.",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@adobe/eslint-config-aio-lib-config": "^2.0.0",
+    "@adobe/generator-app-common-lib": "^0.3.3",
+    "chalk": "^4.0.0",
+    "fs-extra": "^10.1.0",
+    "slugify": "^1.6.5",
+    "upath": "^2.0.1",
+    "yeoman-environment": "^3",
+    "yeoman-generator": "^5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/eslint-parser": "^7.21.8",
+    "@babel/plugin-transform-react-jsx": "^7.8.3",
+    "@babel/polyfill": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@types/jest": "^28.1.8",
+    "eol": "^0.9.1",
+    "eslint": "^8",
+    "eslint-config-standard": "^17",
+    "eslint-plugin-import": "^2",
+    "eslint-plugin-jest": "^27",
+    "eslint-plugin-node": "^11",
+    "eslint-plugin-promise": "^6",
+    "eslint-plugin-standard": "^4.0.1",
+    "inquirer": "^8.2.5",
+    "jest": "^28",
+    "js-yaml": "^4.1.0",
+    "lodash.clonedeep": "^4.5.0",
+    "stdout-stderr": "^0.1.13",
+    "yeoman-assert": "^3.1.1",
+    "yeoman-environment": "^3.2.0",
+    "yeoman-test": "^6.3.0"
+  },
+  "peerDependencies": {
+    "@adobe/aio-cli-plugin-app-templates": "^1.0.0"
+  },
+  "scripts": {
+    "test": "jest ./test",
+    "lint:check": "eslint --ext .js .",
+    "lint:fix": "eslint --ext .js --fix ."
+  }
+}

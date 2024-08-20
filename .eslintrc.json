@@ -1,0 +1,33 @@
+{
+  "parser": "@babel/eslint-parser",
+  "extends": [
+    "@adobe/eslint-config-aio-lib-config"
+  ],
+  "rules": {
+    "semi": ["error", "always"],
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "never"
+      }
+    ],
+    "jest/expect-expect": "off",
+    "jsdoc/require-param-type": "off",
+    "jsdoc/require-param-description": "off",
+    "jsdoc/require-returns": "off",
+    "node/no-unpublished-require": [
+      "error",
+      {
+        "allowModules": [
+          "yeoman-test",
+          "inquirer",
+          "stdout-stderr"
+        ]
+      }
+    ]
+  }
+}
