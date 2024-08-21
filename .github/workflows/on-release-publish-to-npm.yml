@@ -1,4 +1,4 @@
-name: on-release-publish-to-npm
+name: on-on release-publish-to-npm
 on:
   release:
     types: [created]
@@ -15,4 +15,4 @@ jobs:
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
-          access: 'public'
+          access: "public"
