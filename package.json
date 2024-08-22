@@ -1,6 +1,6 @@
 {
   "name": "@adobe/workfront-ui-ext-tpl",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "src/index.js",
   "description": "Template for AIO CLI App Builder plugin that allows generating code of UI Extension for Workfront product",
   "engines": {
