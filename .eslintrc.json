@@ -1,8 +1,5 @@
 {
   "parser": "@babel/eslint-parser",
-  "extends": [
-    "@adobe/eslint-config-aio-lib-config"
-  ],
   "rules": {
     "semi": ["error", "always"],
     "comma-dangle": [
@@ -22,11 +19,12 @@
     "node/no-unpublished-require": [
       "error",
       {
+        "devDependencies": true,
         "allowModules": [
           "yeoman-test",
           "inquirer",
           "stdout-stderr"
-        ]
+        ],
       }
     ]
   }

@@ -12,7 +12,6 @@
   "author": "Adobe Inc.",
   "license": "Apache-2.0",
   "dependencies": {
-    "@adobe/eslint-config-aio-lib-config": "^2.0.0",
     "@adobe/generator-app-common-lib": "^0.3.3",
     "chalk": "^4.0.0",
     "fs-extra": "^10.1.0",

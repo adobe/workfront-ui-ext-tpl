@@ -69,7 +69,7 @@ class ConfigGenerator extends Generator {
       'hooks', {
         'pre-app-run': 'node node_modules/@adobe/uix-guest/scripts/generate-metadata.js',
         'pre-app-build': 'node node_modules/@adobe/uix-guest/scripts/generate-metadata.js',
-        'post-app-deploy': './hooks/post-deploy.js'
+        'post-app-deploy': './hooks/post-deploy.js',
       }
     );
   }
