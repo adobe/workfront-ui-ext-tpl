@@ -1,11 +1,11 @@
-        headerMenu: {
+        mainMenu: {
           getItems() {
             return [
               // @todo YOUR HEADER BUTTONS DECLARATION SHOULD BE HERE
               <%_ extensionManifest.mainMenuItems.forEach((button) => { -%>
               {
                 id: '<%- button.id %>',
-                url: '<%- button.id %>',
+                url: '/<%- button.id %>',
                 label: '<%- button.label %>',
                 icon: 'OpenIn',
                 onClick() {
