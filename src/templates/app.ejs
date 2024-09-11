@@ -4,7 +4,7 @@
 
 import React from "react";
 import ErrorBoundary from "react-error-boundary";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ExtensionRegistration from "./ExtensionRegistration";
 
 
@@ -21,22 +21,17 @@ function App() {
     <Router>
       <ErrorBoundary onError={onError} FallbackComponent={fallbackComponent}>
         <Routes>
-          <Route index element={<ExtensionRegistration />} />
-          <Route
-            exact path="index.html"
-            element={<ExtensionRegistration />}
-          />
-
           <%_ if (extensionManifest.mainMenuItems) { -%>
-            <%_ extensionManifest.mainMenuItems.forEach((menuItem, index) => { -%>
+            <%_ extensionManifest.mainMenuItems.forEach((menuItem) => { -%>
               <%_ const menuItemComponent = menuItem.id.replace(/-/g, '') -%>
               <%_ const capitalizedMenuItemComponent = menuItemComponent.charAt(0).toUpperCase() + menuItemComponent.slice(1); -%>
           <Route
-            exact path="<%-`${menuItem.id }-${index }`%>"
+            exact path="<%-`${menuItem.id}`%>"
             element={<<%- capitalizedMenuItemComponent %> />}
           />
             <%_ }) -%>
           <%_ } -%>
+          <Route path="*" element={<ExtensionRegistration />} />
           {/* @todo YOUR CUSTOM ROUTES SHOULD BE HERE */}
         </Routes>
       </ErrorBoundary>
