@@ -62,7 +62,6 @@ class DependenciesGenerator extends Generator {
         '@openwhisk/wskdebug': '^1.3.0',
         jest: '^27.2.4',
         "ajv": "^8.12.0",
-        "js-yaml": "^4.1.0"
       },
       true
     );

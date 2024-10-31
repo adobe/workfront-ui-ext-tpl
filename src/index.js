@@ -46,9 +46,9 @@ class MainGenerator extends Generator {
   }
 
   initializing () {
-    const extensionRootFolder = 'src/workfront-template-1';
+    const extensionRootFolder = 'src/workfront-ui-1';
     this.extensionOptions = {
-      type: 'workfront-template/1',
+      type: 'workfront-ui/1',
       rootFolder: extensionRootFolder,
       webSrcFolder: `${extensionRootFolder}/web-src`,
       configPath: `${extensionRootFolder}/ext.config.yaml`,
