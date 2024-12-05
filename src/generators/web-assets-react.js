@@ -30,6 +30,7 @@ class WebAssetsReactGenerator extends Generator {
     this.generateAppRoute();
     this.generateExtensionRegistration();
     this.generateWidgetFiles();
+    this.generateMainMenuComponentFiles();
     this.configureBabel();
   }
 
@@ -80,6 +81,26 @@ class WebAssetsReactGenerator extends Generator {
         {
           ...this.templateProps,
           widget,
+        }
+      );
+    });
+  }
+
+  generateMainMenuComponentFiles () {
+    const mainMenuItems = this.options.extensionOptions.manifest.mainMenuItems || [];
+
+    mainMenuItems.forEach((item) => {
+      const fileName = item.id.replace(/-/g, '') + 'MainMenu';
+      const capitalizedFileName = fileName.charAt(0).toUpperCase() + fileName.slice(1);
+
+      this.fs.copyTpl(
+        this.templatePath(`${this.templatesFolder}/extension-registration/main-menu-component.ejs`),
+        this.destinationPath(
+          `${this.options.extensionOptions.webSrcFolder}/src/components/${capitalizedFileName}.js`
+        ),
+        {
+          ...this.templateProps,
+          ComponentName: capitalizedFileName
         }
       );
     });

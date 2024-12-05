@@ -10,9 +10,9 @@ import metadata from '../../../../app-metadata.json';
 function ExtensionRegistration() {
   const init = async () => {
     const guestConnection = await register({
-      id: extensionId,
       metadata,
       methods: {
+        id: extensionId,
         <%_ if (extensionManifest.mainMenuItems) { -%>
 <%- include('./extension-registration/main-menu-items.ejs') -%>
         <%_ } -%>
