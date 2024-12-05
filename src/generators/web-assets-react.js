@@ -87,7 +87,7 @@ class WebAssetsReactGenerator extends Generator {
   }
 
   generateMainMenuComponentFiles () {
-    const mainMenuItems = this.options.extensionOptions.manifest.mainMenuItems || [];
+    const mainMenuItems = this.options.extensionOptions.manifest?.mainMenuItems || [];
 
     mainMenuItems.forEach((item) => {
       const fileName = item.id.replace(/-/g, '') + 'MainMenu';
