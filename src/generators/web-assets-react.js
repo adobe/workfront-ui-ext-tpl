@@ -30,6 +30,8 @@ class WebAssetsReactGenerator extends Generator {
     this.generateAppRoute();
     this.generateExtensionRegistration();
     this.generateWidgetFiles();
+    this.generateMainMenuComponentFiles();
+    this.generateMainMenuItemsIcons();
     this.configureBabel();
   }
 
@@ -83,6 +85,39 @@ class WebAssetsReactGenerator extends Generator {
         }
       );
     });
+  }
+
+  generateMainMenuComponentFiles () {
+    const mainMenuItems = this.options.extensionOptions.manifest?.mainMenuItems || [];
+
+    mainMenuItems.forEach((item) => {
+      const fileName = item.id.replace(/-/g, '') + 'MainMenuItem';
+      const capitalizedFileName = fileName.charAt(0).toUpperCase() + fileName.slice(1);
+
+      this.fs.copyTpl(
+        this.templatePath(`${this.templatesFolder}/extension-registration/main-menu-component.ejs`),
+        this.destinationPath(
+          `${this.options.extensionOptions.webSrcFolder}/src/components/${capitalizedFileName}.js`
+        ),
+        {
+          ...this.templateProps,
+          ComponentName: capitalizedFileName
+        }
+      );
+    });
+  }
+
+  generateMainMenuItemsIcons () {
+    const mainMenuItems = this.options.extensionOptions.manifest?.mainMenuItems || [];
+
+    if(mainMenuItems.length > 0){
+      this.fs.copyTpl(
+         this.templatePath(`${this.templatesFolder}/extension-registration/icons.ejs`),
+         this.destinationPath(
+           `${this.options.extensionOptions.webSrcFolder}/src/components/icons.js`
+         )
+      );
+    }
   }
 
   configureBabel () {

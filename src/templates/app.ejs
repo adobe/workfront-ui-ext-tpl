@@ -4,7 +4,7 @@
 
 import React from "react";
 import ErrorBoundary from "react-error-boundary";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import ExtensionRegistration from "./ExtensionRegistration";
 
 
@@ -12,7 +12,7 @@ import ExtensionRegistration from "./ExtensionRegistration";
   <%_ extensionManifest.mainMenuItems.forEach((menuItem) => { -%>
   <%_ const menuItemComponent = menuItem.id.replace(/-/g, '') -%>
   <%_ const capitalizedMenuItemComponent = menuItemComponent.charAt(0).toUpperCase() + menuItemComponent.slice(1); -%>
-import <%- capitalizedMenuItemComponent %> from "./<%- capitalizedMenuItemComponent %>";
+import <%- capitalizedMenuItemComponent %> from "./<%- capitalizedMenuItemComponent + "MainMenuItem" %>";
   <%_ }) -%>
 <%_ } -%>
 
@@ -21,6 +21,9 @@ function App() {
     <Router>
       <ErrorBoundary onError={onError} FallbackComponent={fallbackComponent}>
         <Routes>
+          <Route index element={<ExtensionRegistration />} />    
+          <Route exact path="index.html" element={<ExtensionRegistration />} />  
+          {/* @todo YOUR CUSTOM ROUTES SHOULD BE HERE */}          
           <%_ if (extensionManifest.mainMenuItems) { -%>
             <%_ extensionManifest.mainMenuItems.forEach((menuItem) => { -%>
               <%_ const menuItemComponent = menuItem.id.replace(/-/g, '') -%>
@@ -31,8 +34,6 @@ function App() {
           />
             <%_ }) -%>
           <%_ } -%>
-          <Route path="*" element={<ExtensionRegistration />} />
-          {/* @todo YOUR CUSTOM ROUTES SHOULD BE HERE */}
         </Routes>
       </ErrorBoundary>
     </Router>

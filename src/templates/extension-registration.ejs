@@ -6,13 +6,16 @@ import { Text } from "@adobe/react-spectrum";
 import { register } from "@adobe/uix-guest";
 import { extensionId } from "./Constants";
 import metadata from '../../../../app-metadata.json';
+<%_ if (extensionManifest.mainMenuItems) { -%>
+import { icon1, icon2 } from './icons';
+<%_ } -%>
 
 function ExtensionRegistration() {
   const init = async () => {
     const guestConnection = await register({
-      id: extensionId,
       metadata,
       methods: {
+        id: extensionId,
         <%_ if (extensionManifest.mainMenuItems) { -%>
 <%- include('./extension-registration/main-menu-items.ejs') -%>
         <%_ } -%>
