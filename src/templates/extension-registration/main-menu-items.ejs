@@ -1,18 +1,15 @@
         mainMenu: {
           getItems() {
             return [
-              // @todo YOUR HEADER BUTTONS DECLARATION SHOULD BE HERE
-              <%_ extensionManifest.mainMenuItems.forEach((button) => { -%>
+              <%_ extensionManifest.mainMenuItems.forEach((button, index) => { -%>
               {
                 id: '<%- button.id %>',
                 url: '/index.html#/<%- button.id %>',
                 label: '<%- button.label %>',
-                icon: 'OpenIn',
-                onClick() {
-                  console.log("Button '<%- button.id %>' has been pressed.");
-                },
+                icon: <%= index % 2 === 0 ? 'icon1' : 'icon2' %>,
               },
               <%_ }) -%>
+            // @todo YOUR HEADER BUTTONS DECLARATION SHOULD BE HERE
             ];
           },
         },

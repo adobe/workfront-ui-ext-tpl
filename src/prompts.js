@@ -95,7 +95,7 @@ const promptMainMenu = (manifest) => {
   choices.push(
     new inquirer.Separator(),
     {
-      name: 'Add a custom button to Main Menu',
+      name: 'Add a custom button to Main Menu Item',
       value: mainMenuItemsPrompts.bind(this, manifest),
     },
     new inquirer.Separator(),
